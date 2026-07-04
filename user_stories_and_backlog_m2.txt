@@ -1,0 +1,54 @@
+User Roles: citizen, ngo, authority, admin
+
+
+As a user
+    I should be able to view the station locations in the map
+    I should be able to submit a report
+    I should be able to view all the submitted reports
+
+As an authority
+    I should be able to verify or reject a report
+
+
+Backlogs:
+1. create /stations route
+    APIContract:
+        GET /stations
+        Return [ { name, la, ln,... }]
+    
+2. create a map UI in the dashboard and point the station locations in the map
+    - use google maps API to show the maps view
+    - get the stations data from the backend
+    - set the pointers in the map based on station data
+
+3. show a button on the navbar with name "Report"
+    On clicking, show  a form to take report data
+    fields:
+        upload_photo
+        location
+        description
+        water_source
+        station_name
+
+    APIContract
+        POST /report { ... }
+        Return 200
+        Return 400
+
+4. Create a page to view all the reports
+    fetches from the backed
+    
+    APIContract:
+        GET /reports
+        Return 200 [ { name, station_id, photo_url,... }]
+
+5. When a report is viewed by authority, 
+        and the report is in pending then
+        show two buttons to mark (verified, rejected)
+    when the button is clicked, call the API and update the report
+
+    APIContract
+        POST /report/action { verified: true, rejected: ... }
+        * changes the status of the report
+        Returns 200
+    

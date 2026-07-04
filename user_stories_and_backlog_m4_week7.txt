@@ -1,0 +1,45 @@
+User Roles: citizen, ngo, authority, admin
+
+
+
+Collaboration tools:
+As an NGO, 
+    I want to publish the project I'm working/worked on
+    I want to look at the projects of other NGOs
+
+
+Dashboard:
+    Number card:
+        Total Waterstations: [n]
+        Total Readings collected: [r]
+        Avg readings per station : [n]
+        avg reports per station
+
+    Pie chart:
+        Alert status count
+        Report status count
+
+    Box Plot:
+        Parameter on x axis and it's stats on Y axis
+
+    Latest Alerts (last 3 alerts)
+    ... alert details
+
+    Latest Reports (last 3 reports)
+    ... report details
+
+
+Backlog:
+
+1. APIContract  POST /ngo-project { project_name, contact_email }
+                check the user is ngo
+                Response: 200K
+2. APIContract  GET /ngo-projects 
+                check the user role is ngo
+                Response: all the ngo projects
+3. Create Frontend List page to view all the ngo projects
+4. Create a form to publish the project
+
+5. APIContract  GET /dashboard-data 
+                Response { tws: n, trc: r, arps: n, areps: .., asc: {s:c, ..}, rsc, ... }
+6. Use cache to improve speed of the dashboard.

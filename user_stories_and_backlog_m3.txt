@@ -1,0 +1,39 @@
+User Roles: citizen, ngo, authority, admin
+
+
+As a user
+    I should be able to view the alert page
+    I should be able to report for an alert
+
+    I should be able to view the history of each parameter values in a graph for a water station
+
+From system
+    when a water station reading is created,
+    create an alert if the reading exceeds the given threshold
+
+
+
+Backlogs:
+1. Create a page to view all the alerts (UI)
+    fetches from the backed
+    
+    APIContract:
+        GET /alerts
+        Return 200 [ { alert_type, message, location, station_id ... }]
+
+2. Show a create report button for an alert if it is not already created
+    on click it should show the report creation page (internally it should have the alert id)
+
+    Update APIContract:
+        POST /report
+        - add alert_id field in the payload, and set report_id in that alert record
+
+3. while fetching the station readings data, check if the parameter exceeds the given threshold
+    create an alert record if it exceeds.
+
+4. Given for a water stations the readings of each parameter is fetched every hour (day)
+    take water station 1
+    it has many station readins with parameter and a value
+
+    Show recorded time in the x-axis and the value in the y-axis.
+    Show a line of threshold

@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello</h1>
+
+        <p id="count">value{observer of i}</p>
+        
+        <script>
+            var i = 0
+            function onClick(){
+                i += 1
+                var ele = document.getElementById('count')
+                ele.innerText = i.toString()
+            }
+        </script>
+        
+        <button onclick="onClick()" >Count</button>
+    </body>
+</html>
